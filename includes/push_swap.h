@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 15:25:48 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/21 13:49:52 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/21 14:58:47 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void			reverse_rotate(t_node *top_node);
 
 void			swap(t_node *top_node);
 
-void			push(t_node **dest, int dest_size, t_node **src, int src_size);
+void			push(t_node **dest, int *dest_size, t_node **src, int *src_size);
 
 
 /*

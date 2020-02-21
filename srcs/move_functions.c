@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 11:56:13 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/21 14:08:11 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/21 15:00:56 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	swap(t_node *top_node)
 	top_node->data = num;
 }
 
-void	push(t_node **dest, int dest_size, t_node **src, int src_size)
+t_node	*detach_node(t_node **src)
 {
 	t_node *temp;
 
@@ -67,8 +67,16 @@ void	push(t_node **dest, int dest_size, t_node **src, int src_size)
 	temp->previous = (*src)->previous;
 	temp = (*src)->previous;
 	temp->next = (*src)->next;
-	temp = (*src)->next;
-	if (dest_size == 0)
+	return(temp->next);
+}
+
+void	push(t_node **dest, int *dest_size, t_node **src, int *src_size)
+{
+	t_node *temp;
+	t_node *new_head;
+
+	new_head = detach_node(src);
+	if (*dest_size == 0)
 	{
 		*dest = *src;
 		(*dest)->next = *dest;
@@ -79,11 +87,11 @@ void	push(t_node **dest, int dest_size, t_node **src, int src_size)
 		(*src)->next = *dest;
 		(*src)->previous = (*dest)->previous;
 		temp = (*dest)->previous;
-		temp->next = *src;
+		temp->next = (*src);
 		temp = (*dest)->next;
-		temp->previous = *src;
+		temp->previous = (*src);
 	}
-	*src = temp;
-	if (++dest_size && --src_size == 0)
+	*src = new_head;
+	if (++*dest_size && --*src_size == 0)
 		src = NULL;
 }

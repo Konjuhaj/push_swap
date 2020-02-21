@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 10:53:14 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/21 14:06:24 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/21 14:58:17 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ void	sort_small(t_stack *stack)
 	if (is_sorted(stack))
 	{
 		movable_node = smallest_node(stack->a);
-		push(&stack->b, stack->b_size, &stack->a, stack->a_size);
+		push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
+		ft_printf("top of a ->%d | top of b ->%d\n", stack->a->data, stack->b->data);
+		push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
+		ft_printf("top of a ->%d | top of b ->%d\n", stack->a->data, stack->b->data);
 		swap(stack->a);
 	}
 	ft_printf("SORTED\n");
