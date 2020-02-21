@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bkonjuha <bkonjuha@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 11:56:13 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/21 15:00:56 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/21 22:14:17 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,17 @@ t_node	*detach_node(t_node **src)
 	temp->previous = (*src)->previous;
 	temp = (*src)->previous;
 	temp->next = (*src)->next;
-	return(temp->next);
+	return(*src);
 }
 
 void	push(t_node **dest, int *dest_size, t_node **src, int *src_size)
 {
 	t_node *temp;
-	t_node *new_head;
+	t_node *b_head;
+	t_node *old_head;
 
-	new_head = detach_node(src);
+	b_head = detach_node(src);
+	old_head = b_head->next;
 	if (*dest_size == 0)
 	{
 		*dest = *src;
@@ -84,14 +86,15 @@ void	push(t_node **dest, int *dest_size, t_node **src, int *src_size)
 	}
 	else
 	{
-		(*src)->next = *dest;
-		(*src)->previous = (*dest)->previous;
+		b_head->next = *dest;
+		b_head->previous = (*dest)->previous;
 		temp = (*dest)->previous;
-		temp->next = (*src);
+		temp->next = b_head;
 		temp = (*dest)->next;
-		temp->previous = (*src);
+		temp->previous = b_head;
+		*dest = b_head;
 	}
-	*src = new_head;
+	*src = old_head;
 	if (++*dest_size && --*src_size == 0)
 		src = NULL;
 }

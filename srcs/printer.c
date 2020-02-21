@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printer.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bkonjuha <bkonjuha@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 13:43:11 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/21 14:33:29 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/21 22:24:29 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@ void print_stack(t_stack *stack)
 {
 	t_node	*temp;
 	t_node	*temp2;
-	int		stopper;
 
-	temp = stack->a;
-	temp2 = stack->b;
-	stopper = 1;
-	while (temp)
+	temp = stack->a->next;
+	temp2 = stack->b->next;
+	ft_printf("%d	%d\n", stack->a->data, stack->b->data);
+	while (temp2 != stack->b || temp != stack->a)
 	{
-		ft_printf("%d	", temp->data);
-		temp = temp->next;
-		if(temp2 && stopper)
+		if (temp != stack->a)
+		{
+			ft_printf("%d", temp->data);
+			temp = temp->next;
+		}
+		ft_printf("	");
+		if (temp2 != stack->b)
 		{
 			ft_printf("%d", temp2->data);
-			if (temp2->next == stack->b)
-				stopper--;
+			temp2 = temp2->next;
 		}
 		ft_printf("\n");
-		if (temp == stack->a)
-			break ;
 	}
 }
