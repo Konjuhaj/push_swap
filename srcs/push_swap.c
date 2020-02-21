@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:55:31 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/21 11:24:05 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/21 13:34:53 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	connect_stack(t_stack *stack)
 
 	temp = stack->a;
 	stack->a_size = 0;
+	stack->b_size = 0;
 	while (++stack->a_size && temp && temp->next)
 		temp = temp->next;
 	temp->next = stack->a;
