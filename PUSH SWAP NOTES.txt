@@ -1,8 +1,0 @@
-# src(110) <--previous		next-->  temp(130)
-# 	|						>
-# 	| next 				/NEXT
-# 	|				  /
-# 	|			    /
-# 	|previous	  /
-# 	V			/PREVIOUS
-# node3(150)	<
