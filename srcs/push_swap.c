@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:55:31 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/21 10:43:58 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/21 11:24:05 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	connect_stack(t_stack *stack)
 	t_node *temp;
 
 	temp = stack->a;
-	while (temp && temp->next)
+	stack->a_size = 0;
+	while (++stack->a_size && temp && temp->next)
 		temp = temp->next;
 	temp->next = stack->a;
 	stack->a->previous = temp;
@@ -72,9 +73,14 @@ int		main(int ac, char **av)
 	{
 		s = split_numbers(av);
 		stack->a = read_arguments(NULL, s);
+		stack->b = NULL;
 	}
 	connect_stack(stack);
+	if (stack->a_size < 20)
+		sort_small(stack);
+	// else
+	// 	sort_big;
 	print_stack(stack);
-	system("leaks a.out | grep Process | tail -1");
+	// system("leaks a.out | grep Process | tail -1");
 	return (0);
 }
