@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:55:31 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/21 10:02:48 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/21 10:43:58 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,25 +53,28 @@ char	**split_numbers(char **s)
 	while (s[++i])
 	{
 		temp2 = ft_strjoin2(temp, " ", s[i]);
-		free(temp);
+		ft_strdel(&temp);
 		temp = temp2;
 	}
 	ret = ft_strsplit(temp, ' ');
-	free(temp);
+	ft_strdel(&temp);
 	return (ret);
 }
 
 int		main(int ac, char **av)
 {
 	t_stack *stack;
+	char	**s;
 
 	if (!(stack = (t_stack *)malloc(sizeof(t_stack))))
 		errno();
 	if (ac > 1)
 	{
-		stack->a = read_arguments(NULL, split_numbers(av));
+		s = split_numbers(av);
+		stack->a = read_arguments(NULL, s);
 	}
 	connect_stack(stack);
 	print_stack(stack);
+	system("leaks a.out | grep Process | tail -1");
 	return (0);
 }
