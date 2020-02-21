@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 13:43:11 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/20 18:12:20 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/21 09:42:39 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void print_stack(t_stack *stack)
 	{
 		ft_printf("%d\n", temp->data);
 		temp = temp->next;
-		// if (temp == stack->a)
-		// 	break ;
+		if (temp == stack->a)
+			break ;
 	}
 }
