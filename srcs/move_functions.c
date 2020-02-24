@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 11:56:13 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/24 11:00:00 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/24 16:37:35 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	push(t_node **dest, int *dest_size, t_node **src, int *src_size)
 		b_head->previous = (*dest)->previous;
 		temp = (*dest)->previous;
 		temp->next = b_head;
-		temp = (*dest)->next;
+		temp = (*dest)->next == b_head ? *dest : (*dest)->next;
 		temp->previous = b_head;
 		*dest = b_head;
 	}
