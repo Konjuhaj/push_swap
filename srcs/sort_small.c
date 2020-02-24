@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkonjuha <bkonjuha@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 10:53:14 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/21 22:25:29 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/24 11:00:18 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,19 @@ void	sort_small(t_stack *stack)
 	if (is_sorted(stack))
 	{
 		movable_node = smallest_node(stack->a);
+		ft_printf("----------------\n");
+		push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
+		print_stack(stack);
+		ft_printf("----------------\n");
+		push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
+		print_stack(stack);
+		ft_printf("----------------\n");
+		push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
+		print_stack(stack);
+		ft_printf("----------------\n");
+		push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
+		print_stack(stack);
+		ft_printf("----------------\n");
 		push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
 		print_stack(stack);
 		ft_printf("----------------\n");
@@ -58,4 +71,3 @@ void	sort_small(t_stack *stack)
 	}
 	ft_printf("SORTED\n");
 }
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printer.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkonjuha <bkonjuha@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 13:43:11 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/21 22:24:29 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/24 10:42:16 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,14 @@ void print_stack(t_stack *stack)
 	t_node	*temp;
 	t_node	*temp2;
 
-	temp = stack->a->next;
-	temp2 = stack->b->next;
-	ft_printf("%d	%d\n", stack->a->data, stack->b->data);
+	temp = stack->a == NULL? NULL : stack->a->next;
+	temp2 = stack->b == NULL? NULL : stack->b->next;
+	if (stack->a)
+		ft_printf("%d", stack->a->data);
+	ft_printf("	");
+	if (stack->b)
+		ft_printf("%d", stack->b->data);
+	ft_printf("\n");
 	while (temp2 != stack->b || temp != stack->a)
 	{
 		if (temp != stack->a)

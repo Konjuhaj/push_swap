@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkonjuha <bkonjuha@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 11:56:13 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/21 22:14:17 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/24 11:00:00 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,5 @@ void	push(t_node **dest, int *dest_size, t_node **src, int *src_size)
 	}
 	*src = old_head;
 	if (++*dest_size && --*src_size == 0)
-		src = NULL;
+		*src = NULL;
 }
