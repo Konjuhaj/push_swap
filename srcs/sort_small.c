@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 10:53:14 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/24 19:52:16 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/24 20:09:02 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	find_best_spot(t_stack *stack)
 	while (i && i-- < stack->b_size)
 	{
 		reverse_rotate(stack->b);
-		ft_printf("rb\n");
+		ft_printf("rrb\n");
 	}
 }
 
@@ -97,7 +97,7 @@ void	sort_small(t_stack *stack)
 			if (movable_node == 1 && (swap(stack->a)))
 				ft_printf("sa\n");
 			else if (movable_node == -1 && (reverse_rotate(stack->a)))
-				ft_printf("ra\n");
+				ft_printf("rra\n");
 			find_best_spot(stack);
 			push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
 			move_smallest_to_bottom(stack);
