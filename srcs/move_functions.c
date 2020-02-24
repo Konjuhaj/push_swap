@@ -6,13 +6,13 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 11:56:13 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/24 16:37:35 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/24 19:35:05 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rotate(t_node *top_node)
+int		rotate(t_node *top_node)
 {
 	t_node	*temp;
 	t_node	*next;
@@ -28,9 +28,10 @@ void	rotate(t_node *top_node)
 		next = next->next;
 		temp = temp->next;
 	}
+	return (1);
 }
 
-void	reverse_rotate(t_node *top_node)
+int		reverse_rotate(t_node *top_node)
 {
 	t_node	*temp;
 	t_node	*previous;
@@ -46,9 +47,10 @@ void	reverse_rotate(t_node *top_node)
 		previous = previous->previous;
 		temp = temp->previous;
 	}
+	return (1);
 }
 
-void	swap(t_node *top_node)
+int		swap(t_node *top_node)
 {
 	t_node	*next;
 	int		num;
@@ -57,6 +59,7 @@ void	swap(t_node *top_node)
 	num = next->data;
 	next->data = top_node->data;
 	top_node->data = num;
+	return (1);
 }
 
 t_node	*detach_node(t_node **src)
@@ -70,7 +73,7 @@ t_node	*detach_node(t_node **src)
 	return(*src);
 }
 
-void	push(t_node **dest, int *dest_size, t_node **src, int *src_size)
+int		push(t_node **dest, int *dest_size, t_node **src, int *src_size)
 {
 	t_node *temp;
 	t_node *b_head;
@@ -97,4 +100,5 @@ void	push(t_node **dest, int *dest_size, t_node **src, int *src_size)
 	*src = old_head;
 	if (++*dest_size && --*src_size == 0)
 		*src = NULL;
+	return (1);
 }

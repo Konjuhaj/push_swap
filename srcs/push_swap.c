@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:55:31 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/21 13:34:53 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/24 19:56:35 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,11 @@ int		main(int ac, char **av)
 		stack->b = NULL;
 	}
 	connect_stack(stack);
-	if (stack->a_size < 20)
+	if (stack->a_size)
 		sort_small(stack);
 	// else
 	// 	sort_big;
-	print_stack(stack);
+	// print_stack(stack);
 	// system("leaks a.out | grep Process | tail -1");
 	return (0);
 }
