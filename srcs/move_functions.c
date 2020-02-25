@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bkonjuha <bkonjuha@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 11:56:13 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/24 20:17:14 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/25 19:27:54 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,7 @@ int		push(t_node **dest, int *dest_size, t_node **src, int *src_size)
 		b_head->previous = (*dest)->previous;
 		temp = (*dest)->previous;
 		temp->next = b_head;
-		temp = (*dest)->next == b_head ? *dest : (*dest)->next;
-		temp->previous = b_head;
+		(*dest)->previous = b_head;
 		*dest = b_head;
 	}
 	*src = old_head;

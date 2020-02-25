@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bkonjuha <bkonjuha@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 10:53:14 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/24 20:09:02 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/25 20:14:24 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,7 @@ void	find_best_spot(t_stack *stack)
 			break ;
 		temp = temp->next;
 	}
-	while (i && i > stack->b_size / 2 + 1 && i++ < stack->b_size)
-	{
-		rotate(stack->b);
-		ft_printf("rb\n");
-	}
-	while (i && i-- < stack->b_size)
-	{
-		reverse_rotate(stack->b);
-		ft_printf("rrb\n");
-	}
+	rotate_best_to_top(stack, i);
 }
 
 void	move_smallest_to_bottom(t_stack *stack)
@@ -101,8 +92,9 @@ void	sort_small(t_stack *stack)
 			find_best_spot(stack);
 			push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
 			move_smallest_to_bottom(stack);
-			ft_printf("pb\n");
-			// print_stack(stack);
+			ft_printf("pb\n-------------\n");
+			print_stack(stack);
+			ft_printf("\n-------------\n");
 		}
 		temp = stack->a->next;
 		if (temp->data < stack->a->data && (swap(stack->a)))
