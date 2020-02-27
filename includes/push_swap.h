@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 15:25:48 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/26 16:13:53 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/27 10:35:20 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void			empty_stack(t_stack *stack);
 
 void			rotate_best_to_top(t_stack *stack, int i);
 
+
 /*
 **				Sorting Functions
 */
@@ -65,6 +66,17 @@ void			find_best_spot(t_stack *stack);
 void			sort_small(t_stack *stack);
 
 void			sort_three(t_node *node);
+
+/*
+**				Scanning functions
+*/
+
+int				top_down_greater_than(t_node *node, int size, int num);
+
+int				bottom_up_smaller_than(t_node *node, int size, int num);
+
+int				find_biggest(t_node *node, int size);
+
 
 /*
 **				Checker Functions

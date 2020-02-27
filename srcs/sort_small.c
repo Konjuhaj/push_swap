@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 10:53:14 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/26 16:13:35 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/27 10:38:42 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,31 +46,13 @@ int		smallest_node(t_node *top)
 
 void	find_best_spot(t_stack *stack)
 {
-	t_node *temp;
 	int i;
-	int compare;
 
-	compare = stack->a->data;
-	i = -1;
-	temp = stack->b;
-	while (++i < stack->b_size)
-	{
-		if (compare > temp->data)
-			break ;
-		temp = temp->next;
-	}
+	i = top_down_greater_than(stack->b, stack->b_size, stack->a->data);
 	if (i == 0 && stack->b)
-	{
-		i = stack->b_size;
-		temp = stack->b->previous;
-		while (i > 0)
-		{
-			if (compare < temp->data)
-				break ;
-			temp = temp->previous;
-			i--;
-		}
-	}
+		i = bottom_up_smaller_than(stack->b, stack->b_size, stack->a->data);
+	if (i == 0 && stack->b)
+		i = find_biggest(stack->b, stack->b_size);
 	rotate_best_to_top(stack, i);
 	push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
 	ft_printf("pb\n");
