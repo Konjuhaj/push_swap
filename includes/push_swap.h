@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 15:25:48 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/27 10:35:20 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/27 11:34:43 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define PUSH_SWAP
 # include "../libraries/ft_printf/libft/libft.h"
 # include "../libraries/ft_printf/includes/ft_printf.h"
-
+# define ASCENDING 0
+# define DESENNDING 1
 
 typedef struct s_node
 {
@@ -54,14 +55,14 @@ int				push(t_node **dest, int *dest_size, t_node **src, int *src_size);
 
 void			empty_stack(t_stack *stack);
 
-void			rotate_best_to_top(t_stack *stack, int i);
+void			rotate_best_to_top(t_node *node, int i, int size);
 
 
 /*
 **				Sorting Functions
 */
 
-void			find_best_spot(t_stack *stack);
+int				find_best_spot(t_node *ref, t_node *b, int b_size, int id);
 
 void			sort_small(t_stack *stack);
 
@@ -71,11 +72,11 @@ void			sort_three(t_node *node);
 **				Scanning functions
 */
 
-int				top_down_greater_than(t_node *node, int size, int num);
+int				top_down_greater_than(t_node *node, int size, int num, int id);
 
-int				bottom_up_smaller_than(t_node *node, int size, int num);
+int				bottom_up_smaller_than(t_node *node, int size, int num, int id);
 
-int				find_biggest(t_node *node, int size);
+int				find_biggest(t_node *node, int size, int id);
 
 
 /*

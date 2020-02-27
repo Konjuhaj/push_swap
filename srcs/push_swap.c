@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:55:31 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/26 15:00:19 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/27 11:40:04 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int		main(int ac, char **av)
 		sort_small(stack);
 	// else
 	// 	sort_big;
-	print_stack(stack);
+	// print_stack(stack);
 	// system("leaks a.out | grep Process | tail -1");
 	return (0);
 }

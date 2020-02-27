@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 10:53:14 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/27 10:38:42 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/27 11:39:37 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,42 +44,45 @@ int		smallest_node(t_node *top)
 		return (-1);
 }
 
-void	find_best_spot(t_stack *stack)
+int		find_best_spot(t_node *src, t_node *dest, int dest_size, int id)
 {
 	int i;
 
-	i = top_down_greater_than(stack->b, stack->b_size, stack->a->data);
-	if (i == 0 && stack->b)
-		i = bottom_up_smaller_than(stack->b, stack->b_size, stack->a->data);
-	if (i == 0 && stack->b)
-		i = find_biggest(stack->b, stack->b_size);
-	rotate_best_to_top(stack, i);
-	push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
-	ft_printf("pb\n");
-	if (i && i == stack->b_size - 1)
-	{
-		ft_printf("rb\n");
-		rotate(stack->b);
-	}
+	i = top_down_greater_than(dest, dest_size, src->data, id);
+	if (i == 0 && dest)
+		i = bottom_up_smaller_than(dest, dest_size, src->data, id);
+	if (i == 0 && dest)
+		i = find_biggest(dest, dest_size, id);
+	return (i);
 }
 
 void	sort_small(t_stack *stack)
 {
-	int movable_node;
+	int move;
 
 	if ((is_sorted(stack->a)))
 	{
 		while (stack->a_size > 3)
 		{
-			movable_node = smallest_node(stack->a);
-			if (movable_node == 1 && (swap(stack->a)))
+			move = smallest_node(stack->a);
+			if (move == 1 && (swap(stack->a)))
 				ft_printf("sa\n");
-			else if (movable_node == -1 && (reverse_rotate(stack->a)))
+			else if (move == -1 && (reverse_rotate(stack->a)))
 				ft_printf("rra\n");
-			find_best_spot(stack);
-			ft_printf("\n-------------\n");
-			print_stack(stack);
-			ft_printf("\n-------------\n");
+			move = find_best_spot(stack->a, stack->b, stack->b_size, DESENNDING);
+			rotate_best_to_top(stack->b, move, stack->b_size);
+			push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
+			ft_printf("pb\n");
+			if (move && move == stack->b_size - 1)
+			{
+			ft_printf("rb\n");
+			rotate(stack->b);
+			}
+//-------------------------------------------------------------------------//
+			// ft_printf("\n-------------\n");
+			// print_stack(stack);
+			// ft_printf("\n-------------\n");
+//-------------------------------------------------------------------------//
 		}
 		sort_three(stack->a);
 		if (stack->b)
