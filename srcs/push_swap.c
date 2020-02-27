@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:55:31 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/27 11:40:04 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/27 11:47:33 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,9 @@ int		main(int ac, char **av)
 		s = split_numbers(av);
 		stack->a = read_arguments(NULL, s);
 		stack->b = NULL;
+		connect_stack(stack);
 	}
-	connect_stack(stack);
-	if (stack->a_size <= 15 && stack->a_size > 0)
+	if (stack->a_size <= 20 && stack->a_size > 0)
 		sort_small(stack);
 	// else
 	// 	sort_big;

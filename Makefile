@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bkonjuha <bkonjuha@student.hive.fi>        +#+  +:+       +#+         #
+#    By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/17 15:14:05 by bkonjuha          #+#    #+#              #
-#    Updated: 2020/02/25 20:03:45 by bkonjuha         ###   ########.fr        #
+#    Updated: 2020/02/27 11:48:14 by bkonjuha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 SRC_PATH = ./srcs/
-SRC_FILES = push_swap.c errno.c printer.c sort_small.c move_functions.c helper.c
+SRC_FILES = push_swap.c errno.c printer.c sort_small.c move_functions.c helper.c scan_stack.c
 SRC = $(addprefix $(SRC_PATH), $(SRC_FILES))
 
 OBJ_PATH = ./objs/
