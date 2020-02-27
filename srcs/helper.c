@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:24 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/27 10:32:34 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/27 10:46:10 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	sort_three(t_node *node)
 
 void	empty_stack(t_stack *stack)
 {
-	rotate_best_to_top(stack, find_biggest(stack->b, stack->b_size) + 1);
+	rotate_best_to_top(stack, find_biggest(stack->b, stack->b_size));
 	while (stack->b_size)
 	{
 		push(&stack->a, &stack->a_size, &stack->b, &stack->b_size);
