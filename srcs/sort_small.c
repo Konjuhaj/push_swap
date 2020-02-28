@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 10:53:14 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/27 11:39:37 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/28 10:13:29 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ int		smallest_node(t_node *top)
 		return (-1);
 }
 
-int		find_best_spot(t_node *src, t_node *dest, int dest_size, int id)
+int		find_best_spot(int ref, t_node *dest, int dest_size, int id)
 {
 	int i;
 
-	i = top_down_greater_than(dest, dest_size, src->data, id);
+	i = top_down_greater_than(dest, dest_size, ref, id);
 	if (i == 0 && dest)
-		i = bottom_up_smaller_than(dest, dest_size, src->data, id);
+		i = bottom_up_smaller_than(dest, dest_size, ref, id);
 	if (i == 0 && dest)
 		i = find_biggest(dest, dest_size, id);
 	return (i);
@@ -69,8 +69,8 @@ void	sort_small(t_stack *stack)
 				ft_printf("sa\n");
 			else if (move == -1 && (reverse_rotate(stack->a)))
 				ft_printf("rra\n");
-			move = find_best_spot(stack->a, stack->b, stack->b_size, DESENNDING);
-			rotate_best_to_top(stack->b, move, stack->b_size);
+			move = find_best_spot(stack->a->data, stack->b, stack->b_size, DESENNDING);
+			rotate_best_to_top(stack->b, move, stack->b_size, 'a');
 			push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
 			ft_printf("pb\n");
 			if (move && move == stack->b_size - 1)
@@ -86,7 +86,7 @@ void	sort_small(t_stack *stack)
 		}
 		sort_three(stack->a);
 		if (stack->b)
-			empty_stack(stack);
+			embty_b_stack(stack);
 	}
 	// ft_printf("\n\n");
 }
