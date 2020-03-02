@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 10:53:14 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/28 10:13:29 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/02 11:26:44 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	sort_small(t_stack *stack)
 			move = smallest_node(stack->a);
 			if (move == 1 && (swap(stack->a)))
 				ft_printf("sa\n");
-			else if (move == -1 && (reverse_rotate(stack->a)))
+			else if (move == -1 && (reverse_rotate(&stack->a)))
 				ft_printf("rra\n");
 			move = find_best_spot(stack->a->data, stack->b, stack->b_size, DESENNDING);
 			rotate_best_to_top(stack->b, move, stack->b_size, 'a');
@@ -76,7 +76,7 @@ void	sort_small(t_stack *stack)
 			if (move && move == stack->b_size - 1)
 			{
 			ft_printf("rb\n");
-			rotate(stack->b);
+			rotate(&stack->b);
 			}
 //-------------------------------------------------------------------------//
 			// ft_printf("\n-------------\n");

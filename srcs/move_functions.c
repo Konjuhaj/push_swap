@@ -3,62 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   move_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkonjuha <bkonjuha@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 11:56:13 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/25 19:27:54 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/02 11:32:42 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int		rotate(t_node *top_node)
+int		rotate(t_node **top_node)
 {
-	t_node	*temp;
-	t_node	*next;
-	int		num;
-
-	temp = top_node;
-	next = top_node->next;
-	while (temp->next != top_node)
-	{
-		num = temp->data;
-		temp->data = next->data;
-		next->data = num;
-		next = next->next;
-		temp = temp->next;
-	}
+	*top_node = (*top_node)->next;
 	return (1);
 }
 
-int		reverse_rotate(t_node *top_node)
+int		reverse_rotate(t_node **top_node)
 {
-	t_node	*temp;
-	t_node	*previous;
-	int		num;
-
-	temp = top_node;
-	previous = top_node->previous;
-	while (temp->previous != top_node)
-	{
-		num = temp->data;
-		temp->data = previous->data;
-		previous->data = num;
-		previous = previous->previous;
-		temp = temp->previous;
-	}
+	*top_node = (*top_node)->previous;
 	return (1);
 }
 
 int		swap(t_node *top_node)
 {
-	t_node	*next;
-	int		num;
+	t_node *next;
+	t_node *prev;
 
 	next = top_node->next;
-	num = next->data;
-	next->data = top_node->data;
-	top_node->data = num;
+	next = next->next;
+	prev = top_node->previous;
+	prev->next = top_node->next;
+	next->previous = top_node;
+	next = top_node->next;
+	prev = next->next;
+	next->next = top_node;
+	next->previous = top_node->previous;
+	top_node->next = prev;
+	top_node->previous = next;
+	top_node = next;
 	return (1);
 }
 

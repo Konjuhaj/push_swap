@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:24 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/28 10:12:12 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/02 11:27:19 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	rotate_best_to_top(t_node *node, int i, int size, char letter)
 	// ft_printf("	->%d\n");
 	while (i && i > size / 2 && i++ < size)
 	{
-		reverse_rotate(node);
+		reverse_rotate(&node);
 		ft_printf("rr%c\n", letter);
 	}
 	while (i && --i < size / 2)
 	{
-		rotate(node);
-		ft_printf("rb\n", letter);
+		rotate(&node);
+		ft_printf("r%c\n", letter);
 	}
 }
 
@@ -36,9 +36,9 @@ void	sort_three(t_node *node)
 	prev = node->previous;
 	while ((is_sorted(node)))
 	{
-		if (node->data < next->data && node->data > prev->data && (reverse_rotate(node)))
+		if (node->data < next->data && node->data > prev->data && (reverse_rotate(&node)))
 			ft_printf("rra\n");
-		else if (prev->data > next->data && prev->data < node->data && (rotate(node)))
+		else if (prev->data > next->data && prev->data < node->data && (rotate(&node)))
 			ft_printf("ra\n");
 		else if (swap(node))
 			ft_printf("sa\n");

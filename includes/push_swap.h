@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 15:25:48 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/28 10:11:36 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/02 11:25:58 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void			print_stack(t_stack *stack);
 **				Moving functions
 */
 
-int				rotate(t_node *top_node);
+int				rotate(t_node **top_node);
 
-int				reverse_rotate(t_node *top_node);
+int				reverse_rotate(t_node **top_node);
 
 int				swap(t_node *top_node);
 

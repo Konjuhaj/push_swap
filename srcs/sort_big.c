@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 08:52:35 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/28 10:13:10 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/02/28 10:33:58 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,12 @@ void	distance_to_top(t_node *node, int size)
 	node->distance_to_top = 0;
 	while (temp != node)
 	{
+		temp->distance_to_top = 0;
 		++j;
 		if (j < size / 2)
 			temp->distance_to_top = ++i;
-		else if (j > size / 2)
-			temp->distance_to_top = --i;
+		else if (j >= size / 2)
+			temp->distance_to_top = i-- + 1;
 		temp = temp->next;
 	}
 }
@@ -51,7 +52,8 @@ void	distance_in_stack_a(t_stack *stack)
 	i = 0;
 	while (i <= stack->b_size)
 	{
-		temp->distance_in_a = find_best_spot(stack->b->data, stack->a, stack->a_size, ASCENDING);
+		temp->distance_in_a = 0;
+		temp->distance_in_a = find_best_spot(temp->data, stack->a, stack->a_size, ASCENDING);
 		temp->price = temp->distance_in_a + temp->distance_to_top;
 		temp = temp->next;
 		i++;
@@ -89,12 +91,12 @@ void	sort_big(t_stack *stack)
 	sort_three(stack->a);
 	while(stack->b_size)
 	{
-		ft_printf("\n-------------\n");
-		print_stack(stack);
-		ft_printf("\n-------------\n");
 		distance_to_top(stack->b, stack->b_size);
 		distance_in_stack_a(stack);
 		rotate_best_to_top(stack->b, cheapest_node(stack->b), stack->b_size, 'b');
+		ft_printf("\n-------------\n");
+		print_stack(stack);
+		ft_printf("\n-------------\n");
 		rotate_best_to_top(stack->a, stack->b->distance_in_a, stack->a_size, 'a');
 		push(&stack->a, &stack->a_size, &stack->b, &stack->b_size);
 		ft_printf("pa\n");
