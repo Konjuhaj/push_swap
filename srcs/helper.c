@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:24 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/04 09:31:43 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/04 10:16:37 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,19 @@ void	rotate_best_to_top(t_node **node, int i, int size, char letter)
 	}
 }
 
-void	sort_three(t_node *node)
+void	sort_three(t_node **node)
 {
 	t_node *next;
 	t_node *prev;
 
-	next = node->next;
-	prev = node->previous;
-	while ((is_sorted(node)))
+
+	while ((is_sorted(*node)))
 	{
-		if (node->data < next->data && node->data > prev->data && (reverse_rotate(&node)))
+		next = (*node)->next;
+		prev = (*node)->previous;
+		if ((*node)->data < next->data && (*node)->data > prev->data && (reverse_rotate(node)))
 			ft_printf("rra\n");
-		else if (prev->data > next->data && prev->data < node->data && (rotate(&node)))
+		else if (prev->data > next->data && prev->data < (*node)->data && (rotate(node)))
 			ft_printf("ra\n");
 		else if (swap(node))
 			ft_printf("sa\n");

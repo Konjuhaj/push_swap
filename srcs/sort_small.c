@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 10:53:14 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/04 09:30:54 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/04 10:17:57 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ int		find_best_spot(int ref, t_node *dest, int dest_size, int id)
 	int i;
 
 	i = top_down_greater_than(dest, dest_size, ref, id);
-	if (i == 0 && dest)
+	if ((i == 0 || i == dest_size) && dest)
 		i = bottom_up_smaller_than(dest, dest_size, ref, id);
-	if (i == 0 && dest)
+	if ((i == 0 || i == dest_size) && dest)
 		i = find_biggest(dest, dest_size, id);
 	return (i);
 }
@@ -65,7 +65,7 @@ void	sort_small(t_stack *stack)
 		while (stack->a_size > 3)
 		{
 			move = smallest_node(stack->a);
-			if (move == 1 && (swap(stack->a)))
+			if (move == 1 && (swap(&stack->a)))
 				ft_printf("sa\n");
 			else if (move == -1 && (reverse_rotate(&stack->a)))
 				ft_printf("rra\n");
@@ -84,7 +84,7 @@ void	sort_small(t_stack *stack)
 			ft_printf("\n-------------\n");
 //-------------------------------------------------------------------------//
 		}
-		sort_three(stack->a);
+		sort_three(&stack->a);
 		if (stack->b)
 			embty_b_stack(stack);
 	}

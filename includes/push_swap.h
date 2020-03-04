@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 15:25:48 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/04 09:30:35 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/04 09:59:38 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int				rotate(t_node **top_node);
 
 int				reverse_rotate(t_node **top_node);
 
-int				swap(t_node *top_node);
+int				swap(t_node **top_node);
 
 int				push(t_node **dest, int *dest_size, t_node **src, int *src_size);
 
@@ -68,7 +68,7 @@ int				find_best_spot(int ref, t_node *b, int b_size, int id);
 
 void			sort_small(t_stack *stack);
 
-void			sort_three(t_node *node);
+void			sort_three(t_node **node);
 
 void			sort_big(t_stack *stack);
 
