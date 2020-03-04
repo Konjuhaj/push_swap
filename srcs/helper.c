@@ -6,23 +6,23 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:24 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/02 11:27:19 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/04 09:31:43 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rotate_best_to_top(t_node *node, int i, int size, char letter)
+void	rotate_best_to_top(t_node **node, int i, int size, char letter)
 {
 	// ft_printf("	->%d\n");
 	while (i && i > size / 2 && i++ < size)
 	{
-		reverse_rotate(&node);
+		reverse_rotate(node);
 		ft_printf("rr%c\n", letter);
 	}
 	while (i && --i < size / 2)
 	{
-		rotate(&node);
+		rotate(node);
 		ft_printf("r%c\n", letter);
 	}
 }
@@ -50,14 +50,14 @@ void	embty_b_stack(t_stack *stack)
 	int move;
 
 	move = find_biggest(stack->b, stack->b_size, DESENNDING);
-	rotate_best_to_top(stack->b, move, stack->b_size, 'b');
+	rotate_best_to_top(&stack->b, move, stack->b_size, 'b');
 	while (stack->b_size)
 	{
 		// ft_printf("\n-------------\n");
 		// print_stack(stack);
 		// ft_printf("\n-------------\n");
 		move = find_best_spot(stack->b->data, stack->a, stack->a_size, ASCENDING);
-		rotate_best_to_top(stack->a, move, stack->a_size, 'a');
+		rotate_best_to_top(&stack->a, move, stack->a_size, 'a');
 		push(&stack->a, &stack->a_size, &stack->b, &stack->b_size);
 		ft_printf("pa\n");
 	}

@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 08:52:35 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/28 10:33:58 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/04 09:31:58 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,15 +93,15 @@ void	sort_big(t_stack *stack)
 	{
 		distance_to_top(stack->b, stack->b_size);
 		distance_in_stack_a(stack);
-		rotate_best_to_top(stack->b, cheapest_node(stack->b), stack->b_size, 'b');
+		rotate_best_to_top(&stack->b, cheapest_node(stack->b), stack->b_size, 'b');
 		ft_printf("\n-------------\n");
 		print_stack(stack);
 		ft_printf("\n-------------\n");
-		rotate_best_to_top(stack->a, stack->b->distance_in_a, stack->a_size, 'a');
+		rotate_best_to_top(&stack->a, stack->b->distance_in_a, stack->a_size, 'a');
 		push(&stack->a, &stack->a_size, &stack->b, &stack->b_size);
 		ft_printf("pa\n");
 
 	}
 	reset = find_best_spot(-2147483648, stack->a, stack->a_size, ASCENDING);
-	rotate_best_to_top(stack->a, reset, stack->a_size, 'a');
+	rotate_best_to_top(&stack->a, reset, stack->a_size, 'a');
 }

@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 15:25:48 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/02 11:25:58 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/04 09:30:35 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int				push(t_node **dest, int *dest_size, t_node **src, int *src_size);
 
 void			embty_b_stack(t_stack *stack);
 
-void			rotate_best_to_top(t_node *node, int i, int size, char letter);
+void			rotate_best_to_top(t_node **node, int i, int size, char letter);
 
 
 /*
