@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 10:53:14 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/04 10:17:57 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/05 11:19:47 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ int		find_best_spot(int ref, t_node *dest, int dest_size, int id)
 	int i;
 
 	i = top_down_greater_than(dest, dest_size, ref, id);
-	if ((i == 0 || i == dest_size) && dest)
+	if (i == 0 && dest)
 		i = bottom_up_smaller_than(dest, dest_size, ref, id);
-	if ((i == 0 || i == dest_size) && dest)
+	if (i == 0 && dest)
 		i = find_biggest(dest, dest_size, id);
 	return (i);
 }
