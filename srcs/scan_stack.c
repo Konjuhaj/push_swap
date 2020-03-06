@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 10:18:56 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/04 09:38:04 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/06 17:25:28 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		top_down_greater_than(t_node *node, int size, int num, int id)
 			break ;
 		node = node->next;
 	}
-	// ft_printf("tdgt %d\n", i);
+	ft_printf("tdgt %d\n", i);
 	return (i);
 }
 
@@ -44,7 +44,7 @@ int		bottom_up_smaller_than(t_node *node, int size, int num, int id)
 		node = node->previous;
 		i--;
 	}
-	// ft_printf("bust %d\n", i);
+	ft_printf("bust %d\n", i);
 	return (i);
 }
 
@@ -70,6 +70,6 @@ int	find_biggest(t_node *node, int size, int id)
 	}
 	if (next == node)
 		i = 0;
-	// ft_printf("fb %d\n", i);
+	ft_printf("fb %d\n", i);
 	return (i);
 }

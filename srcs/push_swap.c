@@ -6,7 +6,11 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:55:31 by bkonjuha          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2020/03/06 17:43:03 by bkonjuha         ###   ########.fr       */
+=======
+/*   Updated: 2020/03/06 17:25:39 by bkonjuha         ###   ########.fr       */
+>>>>>>> 91e9dbbf90f73ad852d60f4a24b3b2ae9a47a4de
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +86,11 @@ int		main(int ac, char **av)
 	else if (stack->a_size > 0)
 		sort_big(stack);
 	print_stack(stack);
+<<<<<<< HEAD
 	if (!(is_sorted(stack->a)))
+=======
+	if (is_sorted(stack->a) == 0)
+>>>>>>> 91e9dbbf90f73ad852d60f4a24b3b2ae9a47a4de
 		ft_printf("OK");
 	// system("leaks a.out | grep Process | tail -1");
 	return (0);

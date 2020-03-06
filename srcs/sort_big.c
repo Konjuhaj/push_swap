@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 08:52:35 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/04 10:42:18 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/06 17:25:31 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	embty_a_stack(t_stack *stack)
 {
+	t_node *temp;
+
+	temp = stack->a->next;
 	while(stack->a_size > 3)
 	{
 		ft_printf("pb\n");
@@ -45,9 +48,8 @@ void	distance_to_top(t_node *node, int size)
 
 void	distance_in_stack_a(t_stack *stack)
 {
-	int		i;
-	int		num;
-	t_node	*temp;
+	int i;
+	t_node *temp;
 
 	temp = stack->b;
 	i = 0;
@@ -55,9 +57,7 @@ void	distance_in_stack_a(t_stack *stack)
 	{
 		temp->distance_in_a = 0;
 		temp->distance_in_a = find_best_spot(temp->data, stack->a, stack->a_size, ASCENDING);
-		num = temp->distance_in_a > stack->a_size / 2 ?
-		temp->distance_in_a - (temp->distance_in_a - stack->a_size / 2) : temp->distance_in_a;
-		temp->price = num + temp->distance_to_top;
+		temp->price = temp->distance_in_a + temp->distance_to_top;
 		temp = temp->next;
 		i++;
 	}
@@ -91,7 +91,7 @@ void	sort_big(t_stack *stack)
 {
 	int reset;
 	embty_a_stack(stack);
-	sort_three(&stack->a);
+	sort_three(stack->a);
 	while(stack->b_size)
 	{
 		distance_to_top(stack->b, stack->b_size);

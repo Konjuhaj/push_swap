@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:24 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/04 10:16:37 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/06 17:26:14 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,31 @@
 void	rotate_best_to_top(t_node **node, int i, int size, char letter)
 {
 	// ft_printf("	->%d\n");
-	while (i && i > size / 2 && i++ < size)
+	while (i && i > (size / 2) && i < size)
 	{
 		reverse_rotate(node);
 		ft_printf("rr%c\n", letter);
+		i++;
 	}
-	while (i && --i < size / 2)
+	while (i && --i < (size / 2))
 	{
 		rotate(node);
 		ft_printf("r%c\n", letter);
 	}
 }
 
-void	sort_three(t_node **node)
+void	sort_three(t_node *node)
 {
 	t_node *next;
 	t_node *prev;
 
-
-	while ((is_sorted(*node)))
+	next = node->next;
+	prev = node->previous;
+	while ((is_sorted(node)))
 	{
-		next = (*node)->next;
-		prev = (*node)->previous;
-		if ((*node)->data < next->data && (*node)->data > prev->data && (reverse_rotate(node)))
+		if (node->data < next->data && node->data > prev->data && (reverse_rotate(&node)))
 			ft_printf("rra\n");
-		else if (prev->data > next->data && prev->data < (*node)->data && (rotate(node)))
+		else if (prev->data > next->data && prev->data < node->data && (rotate(&node)))
 			ft_printf("ra\n");
 		else if (swap(node))
 			ft_printf("sa\n");
