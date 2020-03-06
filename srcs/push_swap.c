@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:55:31 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/06 16:33:44 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/06 17:43:03 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		main(int ac, char **av)
 	else if (stack->a_size > 0)
 		sort_big(stack);
 	print_stack(stack);
-	if (is_sorted(stack->a) == 0)
+	if (!(is_sorted(stack->a)))
 		ft_printf("OK");
 	// system("leaks a.out | grep Process | tail -1");
 	return (0);

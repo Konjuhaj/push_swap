@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:24 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/06 17:09:58 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/04 10:16:37 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 void	rotate_best_to_top(t_node **node, int i, int size, char letter)
 {
 	// ft_printf("	->%d\n");
-	while (i && i > (size / 2) && i < size)
+	while (i && i > size / 2 && i++ < size)
 	{
 		reverse_rotate(node);
 		ft_printf("rr%c\n", letter);
-		i++;
 	}
-	while (i && --i < (size / 2))
+	while (i && --i < size / 2)
 	{
 		rotate(node);
 		ft_printf("r%c\n", letter);

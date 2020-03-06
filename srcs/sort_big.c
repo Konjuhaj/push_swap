@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 08:52:35 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/06 16:43:36 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/04 10:42:18 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	embty_a_stack(t_stack *stack)
 {
-	t_node *temp;
-
-	temp = stack->a->next;
 	while(stack->a_size > 3)
 	{
 		ft_printf("pb\n");
