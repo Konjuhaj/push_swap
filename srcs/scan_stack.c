@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 10:18:56 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/04 09:38:04 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/06 17:00:39 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ int	find_biggest(t_node *node, int size, int id)
 		next = next->next;
 		current = current->next;
 	}
-	if (next == node)
-		i = 0;
 	// ft_printf("fb %d\n", i);
 	return (i);
 }
