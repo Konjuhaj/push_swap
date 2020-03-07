@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 08:52:35 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/07 08:48:14 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/07 14:28:04 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ int	cheapest_node(t_node *node)
 	return (location);
 }
 
+
+
 void	sort_big(t_stack *stack)
 {
 	int reset;
@@ -97,12 +99,13 @@ void	sort_big(t_stack *stack)
 	sort_three(&stack->a);
 	while(stack->b_size)
 	{
+
 		distance_to_top(stack->b, stack->b_size);
 		distance_in_stack_a(stack);
 		rotate_best_to_top(&stack->b, cheapest_node(stack->b), stack->b_size, 'b');
-		ft_printf("\n-------------\n");
-		print_stack(stack);
-		ft_printf("\n-------------\n");
+		// ft_printf("\n-------------\n");
+		// print_stack(stack);
+		// ft_printf("\n-------------\n");
 		rotate_best_to_top(&stack->a, stack->b->distance_in_a, stack->a_size, 'a');
 		push(&stack->a, &stack->a_size, &stack->b, &stack->b_size);
 		ft_printf("pa\n");

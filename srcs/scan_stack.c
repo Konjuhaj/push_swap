@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 10:18:56 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/07 10:47:41 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/07 12:53:58 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	find_biggest(t_node *node, int size, int id)
 	{
 		if (next->data < current->data && id == DESENNDING)
 			i++;
-		else if (next->data > current->data && id == ASCENDING)
+		else if (next->data >= current->data && id == ASCENDING) // remove equal sign for final version
 			i++;
 		else
 			break ;
