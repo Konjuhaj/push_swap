@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 10:53:14 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/07 08:22:15 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/07 10:41:30 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int		smallest_node(t_node *top)
 
 int		is_biggest(t_node *top, int num)
 {
-	t_node *temp;
+	t_node	*temp;
 
-	temp = top->next;
+	temp = top;
 	while (temp->next != top)
 	{
 		if (num < temp->data)
@@ -65,7 +65,7 @@ int		find_best_spot(int ref, t_node *dest, int dest_size, int id)
 	i = top_down_greater_than(dest, dest_size, ref, id);
 	if (i == 0 && dest)
 		i = bottom_up_smaller_than(dest, dest_size, ref, id);
-	if (i == 0 && dest)
+	if (dest && (i == 0 || (is_biggest(dest, ref))))
 		i = find_biggest(dest, dest_size, id);
 	return (i);
 }
