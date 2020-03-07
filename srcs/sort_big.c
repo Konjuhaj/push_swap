@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 08:52:35 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/06 17:25:31 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/07 08:20:13 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	sort_big(t_stack *stack)
 {
 	int reset;
 	embty_a_stack(stack);
-	sort_three(stack->a);
+	sort_three(&stack->a);
 	while(stack->b_size)
 	{
 		distance_to_top(stack->b, stack->b_size);

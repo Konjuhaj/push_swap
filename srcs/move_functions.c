@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 11:56:13 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/02 11:32:42 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/07 08:23:37 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,23 @@ int		reverse_rotate(t_node **top_node)
 	return (1);
 }
 
-int		swap(t_node *top_node)
+int		swap(t_node **top_node)
 {
 	t_node *next;
 	t_node *prev;
 
-	next = top_node->next;
+	next = (*top_node)->next;
 	next = next->next;
-	prev = top_node->previous;
-	prev->next = top_node->next;
-	next->previous = top_node;
-	next = top_node->next;
+	prev = (*top_node)->previous;
+	prev->next = (*top_node)->next;
+	next->previous = *top_node;
+	next = (*top_node)->next;
 	prev = next->next;
-	next->next = top_node;
-	next->previous = top_node->previous;
-	top_node->next = prev;
-	top_node->previous = next;
-	top_node = next;
+	next->next = *top_node;
+	next->previous = (*top_node)->previous;
+	(*top_node)->next = prev;
+	(*top_node)->previous = next;
+	*top_node = next;
 	return (1);
 }
 

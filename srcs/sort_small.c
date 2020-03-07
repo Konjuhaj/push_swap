@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 10:53:14 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/06 17:26:25 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/07 08:22:15 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	sort_small(t_stack *stack)
 		while (stack->a_size > 3)
 		{
 			move = smallest_node(stack->a);
-			if (move == 1 && (swap(stack->a)))
+			if (move == 1 && (swap(&stack->a)))
 				ft_printf("sa\n");
 			else if (move == -1 && (reverse_rotate(&stack->a)))
 				ft_printf("rra\n");
@@ -98,7 +98,7 @@ void	sort_small(t_stack *stack)
 			ft_printf("\n-------------\n");
 //-------------------------------------------------------------------------//
 		}
-		sort_three(stack->a);
+		sort_three(&stack->a);
 		if (stack->b)
 			embty_b_stack(stack);
 	}
