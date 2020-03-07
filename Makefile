@@ -6,19 +6,23 @@
 #    By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/17 15:14:05 by bkonjuha          #+#    #+#              #
-#    Updated: 2020/02/28 08:53:04 by bkonjuha         ###   ########.fr        #
+#    Updated: 2020/03/07 18:55:18 by bkonjuha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+PUSH_SWAP = push_swap
+CHECKER = checker
 
 SRC_PATH = ./srcs/
-SRC_FILES = push_swap.c errno.c printer.c sort_small.c move_functions.c helper.c scan_stack.c sort_big.c
+SRC_FILES = errno.c printer.c sort_small.c move_functions.c helper.c scan_stack.c sort_big.c \
+			validate.c
 SRC = $(addprefix $(SRC_PATH), $(SRC_FILES))
 
-OBJ_PATH = ./objs/
-OBJ_FILES = $(subst .c,.o,$(SRC_FILES))
-OBJS = $(addprefix $(OBJ_PATH), $(OBJ_FILES))
+MAIN_PATH = ./mains/
+PS_MAIN = push_swap.c
+C_MAIN = checker.c
+PS = $(addprefix $(MAIN_PATH), $(PS_MAIN))
+C = $(addprefix $(MAIN_PATH), $(C_MAIN))
 
 INCLUDES = -I ./includes/
 HEADER_PATH = ./includes/
@@ -39,16 +43,13 @@ COLOR_PENDING = \033[0;33m
 COLOR_SUCCESS = \033[0;32m
 COLOR_DEFAULT = \033[1;34m
 
-all: $(NAME)
+all: $(PUSH_SWAP)
 
-$(NAME): $(OBJS) $(HEADERS) $(LIBFT) $(PRINTF)
-		@$(COMPILE) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
+$(PUSH_SWAP): $(HEADERS) $(LIBFT) $(PRINTF)
+		@$(COMPILE) $(PS) $(SRC) $(LIBFT) $(PRINTF) -o $(PUSH_SWAP)
+		@$(COMPILE) $(C) $(SRC) $(LIBFT) $(PRINTF) -o $(PUSH_SWAP)
 		@echo "[$(COLOR_PENDING)Putting everything togeather$(COLOR_RESET)]"
-		@echo "[$(COLOR_SUCCESS)Executable $(NAME) created$(COLOR_RESET)]"
-
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADERS)
-		@mkdir $(OBJ_PATH) 2>/dev/null || echo "" >/dev/null
-		@$(COMPILE) -c $< -o $@ $(INCLUDES)
+		@echo "[$(COLOR_SUCCESS)Executable $(PUSH_SWAP) created$(COLOR_RESET)]"
 
 $(PRINTF) $(LIBFT): $(PRINTF_SRCS)*.c $(LIBFT_PATH)*.c
 		@echo "Recompiling libraries"
@@ -60,7 +61,7 @@ clean:
 		@make clean -C libraries/ft_printf/ >/dev/null
 
 fclean: clean
-		@rm -fv $(NAME) > /dev/null
+		@rm -fv $(PUSH_SWAP) > /dev/null
 		@make fclean -C libraries/ft_printf/ >/dev/null
 
 re: fclean all

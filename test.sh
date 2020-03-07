@@ -1,5 +1,6 @@
 #!/bin/sh
-gcc -Wall -Werror -Wextra -g srcs/*.c libraries/ft_printf/libft/libft.a libraries/ft_printf/libftprintf.a
+gcc -Wall -Werror -Wextra -g srcs/*.c libraries/ft_printf/libft/libft.a libraries/ft_printf/libftprintf.a -o push_swap
+gcc -Wall -Werror -Wextra -g srcs/*.c libraries/ft_printf/libft/libft.a libraries/ft_printf/libftprintf.a -o checker
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -9,6 +10,19 @@ mkdir test_results 2>/dev/null | echo "" >/dev/null
 rm -f /test_results/*.txt
 
 echo "-------------------SHORT TESTs-----------------------"
+
+ARG_ZERO="2 1 3 6 5 8"
+VAR=$(./a.out $ARG_ZERO | grep OK)
+echo "Short test	-> 6 numbers"
+if [ $VAR ]; then
+	LINES=$(./a.out $ARG_ZERO | wc -l)
+	echo "		${GREEN}OK${NC}	linecount = $LINES"
+else
+		echo "${RED}FAIL${NC}"
+fi
+./a.out $ARG_ZERO > 0SHORT_TEST.txt
+
+echo "----------------------------------------------------"
 
 ARG_ONE="1 2 4 5 6 7 8 3 9  12 "
 VAR=$(./a.out $ARG_ONE | grep OK)

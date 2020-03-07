@@ -6,13 +6,15 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 08:13:08 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/21 09:58:45 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/07 18:34:03 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
+# define BUFF_SIZE 32
+# define MAX_FD 10240
+# include <fcntl.h>
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -176,5 +178,7 @@ int					ncount_base(long long n, int base);
 int					ft_abs(int num);
 
 char				*ft_strjoin2(char const *s1, char const *s2, char const *s3);
+
+int					get_next_line(const int fd, char **line);
 
 #endif

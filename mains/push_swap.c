@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:55:31 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/07 16:52:02 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/07 18:27:24 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,22 +63,26 @@ char	**split_numbers(char **s)
 	return (ret);
 }
 
+void	get_arguments(t_stack *stack, char **str)
+{
+	char	**s;
+
+	are_numbers(str);
+	s = split_numbers(str);
+	stack->a = read_arguments(NULL, s);
+	stack->b = NULL;
+	connect_stack(stack);
+	are_doubles(stack);
+}
+
 int		main(int ac, char **av)
 {
 	t_stack *stack;
-	char	**s;
 
 	if (!(stack = (t_stack *)malloc(sizeof(t_stack))))
 		ft_errno();
 	if (ac > 1)
-	{
-		are_numbers(av);
-		s = split_numbers(av);
-		stack->a = read_arguments(NULL, s);
-		stack->b = NULL;
-		connect_stack(stack);
-		are_doubles(stack);
-	}
+		get_arguments(stack, av);
 	if (stack->a_size <= 10 && stack->a_size > 0)
 		sort_small(stack);
 	else if (stack->a_size > 0)
