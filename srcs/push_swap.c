@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:55:31 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/07 14:32:50 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/07 16:52:02 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_node	*read_arguments(t_node *previous, char **s)
 
 	i = 0;
 	if (!(node = (t_node *)malloc(sizeof(t_node))))
-		errno();
+		ft_errno();
 	while (s[++i])
 	{
 		node->data = ft_atoi(s[i]);
@@ -69,13 +69,15 @@ int		main(int ac, char **av)
 	char	**s;
 
 	if (!(stack = (t_stack *)malloc(sizeof(t_stack))))
-		errno();
+		ft_errno();
 	if (ac > 1)
 	{
+		are_numbers(av);
 		s = split_numbers(av);
 		stack->a = read_arguments(NULL, s);
 		stack->b = NULL;
 		connect_stack(stack);
+		are_doubles(stack);
 	}
 	if (stack->a_size <= 10 && stack->a_size > 0)
 		sort_small(stack);

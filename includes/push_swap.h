@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 15:25:48 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/07 08:21:35 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/07 16:47:53 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct	s_stack
 	int			b_size;
 }				t_stack;
 
-void			errno();
+void			ft_errno();
 
 void			print_stack(t_stack *stack);
 
@@ -88,6 +88,12 @@ int				find_biggest(t_node *node, int size, int id);
 */
 
 int				is_sorted(t_node *stack);
+
+int				are_numbers(char **s);
+
+int				are_doubles(t_stack *stack);
+
+
 
 
 #endif
