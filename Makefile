@@ -6,7 +6,7 @@
 #    By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/17 15:14:05 by bkonjuha          #+#    #+#              #
-#    Updated: 2020/03/07 18:55:18 by bkonjuha         ###   ########.fr        #
+#    Updated: 2020/03/08 09:22:58 by bkonjuha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CHECKER = checker
 
 SRC_PATH = ./srcs/
 SRC_FILES = errno.c printer.c sort_small.c move_functions.c helper.c scan_stack.c sort_big.c \
-			validate.c
+			validate.c read_input.c
 SRC = $(addprefix $(SRC_PATH), $(SRC_FILES))
 
 MAIN_PATH = ./mains/
@@ -43,11 +43,11 @@ COLOR_PENDING = \033[0;33m
 COLOR_SUCCESS = \033[0;32m
 COLOR_DEFAULT = \033[1;34m
 
-all: $(PUSH_SWAP)
+all: $(PUSH_SWAP) $(CHECKER)
 
 $(PUSH_SWAP): $(HEADERS) $(LIBFT) $(PRINTF)
 		@$(COMPILE) $(PS) $(SRC) $(LIBFT) $(PRINTF) -o $(PUSH_SWAP)
-		@$(COMPILE) $(C) $(SRC) $(LIBFT) $(PRINTF) -o $(PUSH_SWAP)
+		@$(COMPILE) $(C) $(SRC) $(LIBFT) $(PRINTF) -o $(CHECKER)
 		@echo "[$(COLOR_PENDING)Putting everything togeather$(COLOR_RESET)]"
 		@echo "[$(COLOR_SUCCESS)Executable $(PUSH_SWAP) created$(COLOR_RESET)]"
 

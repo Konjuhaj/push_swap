@@ -1,6 +1,6 @@
 #!/bin/sh
-gcc -Wall -Werror -Wextra -g srcs/*.c libraries/ft_printf/libft/libft.a libraries/ft_printf/libftprintf.a -o push_swap
-gcc -Wall -Werror -Wextra -g srcs/*.c libraries/ft_printf/libft/libft.a libraries/ft_printf/libftprintf.a -o checker
+gcc -Wall -Werror -Wextra -g mains/push_swap.c srcs/*.c libraries/ft_printf/libft/libft.a libraries/ft_printf/libftprintf.a -o push_swap
+gcc -Wall -Werror -Wextra -g mains/checker.c srcs/*.c libraries/ft_printf/libft/libft.a libraries/ft_printf/libftprintf.a -o checker
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'

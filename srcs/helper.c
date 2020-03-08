@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:24 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/07 08:26:01 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/08 09:21:11 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,3 +64,4 @@ void	embty_b_stack(t_stack *stack)
 		ft_printf("pa\n");
 	}
 }
+

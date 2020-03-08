@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 15:25:48 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/07 18:54:48 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/08 09:22:26 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,16 @@ void			embty_b_stack(t_stack *stack);
 
 void			rotate_best_to_top(t_node **node, int i, int size, char letter);
 
+/*
+**				Reading functions
+*/
+
+void			connect_stack(t_stack *stack);
+
+t_node			*read_arguments(t_node *previous, char **s);
+
+char			**split_numbers(char **s);
+
 void			get_arguments(t_stack *stack, char **str);
 
 
@@ -94,8 +104,5 @@ int				is_sorted(t_node *stack);
 int				are_numbers(char **s);
 
 int				are_doubles(t_stack *stack);
-
-
-
 
 #endif
