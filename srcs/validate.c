@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 16:37:40 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/07 16:50:36 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/08 09:35:41 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ int		are_doubles(t_stack *stack)
 		while (comp != curr)
 		{
 			if (curr->data == comp->data)
-			{
-				ft_printf("%d", curr->data);
 				ft_errno();
-			}
 			comp = comp->next;
 		}
 		curr = curr->next;
