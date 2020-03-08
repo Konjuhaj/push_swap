@@ -1,7 +1,7 @@
 #!/bin/bash
 ​
-push_swap="../push_swap"
-checker="../checker"
+push_swap="./push_swap"
+checker="./checker"
 ​
 run_push_swap_error()
 {
