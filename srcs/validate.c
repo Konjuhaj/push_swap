@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 16:37:40 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/08 13:29:46 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/08 14:57:07 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ int		are_numbers(char **s)
 	int fine;
 
 	j = 0;
-	while(s[++j])
+	while (s[++j])
 	{
 		fine = 1;
 		i = -1;
-		while(s[j][++i])
+		while (s[j][++i])
 		{
 			s[j][i] != ' ' ? fine = ft_isdigit(s[j][i]) : 0;
 			if (s[j][i] == '-' || s[j][i] == '+')

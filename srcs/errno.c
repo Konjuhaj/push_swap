@@ -6,13 +6,13 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 12:58:59 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/07 16:29:13 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/08 15:25:07 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void ft_errno()
+void	ft_errno(void)
 {
 	ft_printf("error\n");
 	exit(0);

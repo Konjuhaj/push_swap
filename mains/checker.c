@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:00:26 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/08 14:17:18 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/08 15:21:44 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,25 @@ void	validate_command(char *line)
 		|| ft_strequ(line, "rra") || ft_strequ(line, "rrb")
 		|| ft_strequ(line, "rrr")))
 		ft_errno();
+}
+
+void	double_command(t_stack *stack, char *line)
+{
+	if (ft_strequ(line, "rrr"))
+	{
+		reverse_rotate(&stack->b);
+		reverse_rotate(&stack->a);
+	}
+	else if (ft_strequ(line, "rr"))
+	{
+		rotate(&stack->b);
+		rotate(&stack->a);
+	}
+	else if (ft_strequ(line, "ss"))
+	{
+		swap(&stack->b);
+		swap(&stack->a);
+	}
 }
 
 void	execute_commands(t_stack *stack, char *line)
@@ -41,21 +60,8 @@ void	execute_commands(t_stack *stack, char *line)
 		reverse_rotate(&stack->b);
 	else if (ft_strequ(line, "rra"))
 		reverse_rotate(&stack->a);
-	else if (ft_strequ(line, "rrr"))
-	{
-		reverse_rotate(&stack->b);
-		reverse_rotate(&stack->a);
-	}
-	else if (ft_strequ(line, "rr"))
-	{
-		rotate(&stack->b);
-		rotate(&stack->a);
-	}
-	else if (ft_strequ(line, "ss"))
-	{
-		swap(&stack->b);
-		swap(&stack->a);
-	}
+	else
+		double_command(stack, line);
 }
 
 int		main(int ac, char **av)
@@ -67,7 +73,7 @@ int		main(int ac, char **av)
 		ft_errno();
 	if (ac > 1)
 		get_arguments(stack, av);
-	while(get_next_line(0, &line))
+	while (get_next_line(0, &line))
 	{
 		validate_command(line);
 		execute_commands(stack, line);

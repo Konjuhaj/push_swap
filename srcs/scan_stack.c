@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 10:18:56 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/07 12:53:58 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/08 15:20:47 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int		top_down_greater_than(t_node *node, int size, int num, int id)
 			break ;
 		node = node->next;
 	}
-	// ft_printf("tdgt %d\n", i);
 	return (i);
 }
 
@@ -44,11 +43,10 @@ int		bottom_up_smaller_than(t_node *node, int size, int num, int id)
 		node = node->previous;
 		i--;
 	}
-	// ft_printf("bust %d\n", i);
 	return (i);
 }
 
-int	find_biggest(t_node *node, int size, int id)
+int		find_biggest(t_node *node, int size, int id)
 {
 	int		i;
 	t_node	*next;
@@ -61,7 +59,7 @@ int	find_biggest(t_node *node, int size, int id)
 	{
 		if (next->data < current->data && id == DESENNDING)
 			i++;
-		else if (next->data >= current->data && id == ASCENDING) // remove equal sign for final version
+		else if (next->data > current->data && id == ASCENDING)
 			i++;
 		else
 			break ;
@@ -70,6 +68,5 @@ int	find_biggest(t_node *node, int size, int id)
 	}
 	if (next == node)
 		i = 0;
-	// ft_printf("fb %d\n", i);
 	return (i);
 }

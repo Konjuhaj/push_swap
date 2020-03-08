@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:55:31 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/08 10:53:27 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/08 15:28:30 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int		main(int ac, char **av)
 		sort_small(stack);
 	else if (stack->a_size > 0)
 		sort_big(stack);
-	// print_stack(stack);
-	// system("leaks a.out | grep Process | tail -1");
+	system("leaks push_swap");
 	return (0);
 }

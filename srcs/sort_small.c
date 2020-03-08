@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 10:53:14 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/08 14:50:30 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/08 14:55:43 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,8 @@ void	sort_small(t_stack *stack)
 			rotate_best_to_top(&stack->b, move, stack->b_size, 'b');
 			push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
 			ft_printf("pb\n");
-			if (move && move == stack->b_size - 1)
-			{
+			if (move && move == stack->b_size - 1 && rotate(&stack->b))
 				ft_printf("rb\n");
-				rotate(&stack->b);
-			}
 		}
 		sort_three(&stack->a);
 		if (stack->b)
