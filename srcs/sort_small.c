@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 10:53:14 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/07 14:26:52 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/08 14:50:30 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		smallest_node(t_node *top)
 	previous = top->previous;
 	if (top->data < next->data && top->data < previous->data)
 		return (0);
-	else if(next->data < top->data && next->data < previous->data)
+	else if (next->data < top->data && next->data < previous->data)
 		return (1);
 	else
 		return (-1);
@@ -85,24 +85,19 @@ void	sort_small(t_stack *stack)
 				ft_printf("sa\n");
 			else if (move == -1 && (reverse_rotate(&stack->a)))
 				ft_printf("rra\n");
-			move = find_best_spot(stack->a->data, stack->b, stack->b_size, DESENNDING);
-			rotate_best_to_top(&stack->b, move, stack->b_size, 'a');
+			move = find_best_spot(stack->a->data, stack->b,
+									stack->b_size, DESENNDING);
+			rotate_best_to_top(&stack->b, move, stack->b_size, 'b');
 			push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
 			ft_printf("pb\n");
 			if (move && move == stack->b_size - 1)
 			{
-			ft_printf("rb\n");
-			rotate(&stack->b);
+				ft_printf("rb\n");
+				rotate(&stack->b);
 			}
-//-------------------------------------------------------------------------//
-			// ft_printf("\n-------------\n");
-			// print_stack(stack);
-			// ft_printf("\n-------------\n");
-//-------------------------------------------------------------------------//
 		}
 		sort_three(&stack->a);
 		if (stack->b)
 			embty_b_stack(stack);
 	}
-	// ft_printf("\n\n");
 }

@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 11:56:13 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/07 08:23:37 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/08 14:14:22 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int		rotate(t_node **top_node)
 {
-	*top_node = (*top_node)->next;
+	if (*top_node)
+		*top_node = (*top_node)->next;
 	return (1);
 }
 
 int		reverse_rotate(t_node **top_node)
 {
-	*top_node = (*top_node)->previous;
+	if (*top_node)
+		*top_node = (*top_node)->previous;
 	return (1);
 }
 
@@ -29,18 +31,21 @@ int		swap(t_node **top_node)
 	t_node *next;
 	t_node *prev;
 
-	next = (*top_node)->next;
-	next = next->next;
-	prev = (*top_node)->previous;
-	prev->next = (*top_node)->next;
-	next->previous = *top_node;
-	next = (*top_node)->next;
-	prev = next->next;
-	next->next = *top_node;
-	next->previous = (*top_node)->previous;
-	(*top_node)->next = prev;
-	(*top_node)->previous = next;
-	*top_node = next;
+	if (*top_node)
+	{
+		next = (*top_node)->next;
+		next = next->next;
+		prev = (*top_node)->previous;
+		prev->next = (*top_node)->next;
+		next->previous = *top_node;
+		next = (*top_node)->next;
+		prev = next->next;
+		next->next = *top_node;
+		next->previous = (*top_node)->previous;
+		(*top_node)->next = prev;
+		(*top_node)->previous = next;
+		*top_node = next;
+	}
 	return (1);
 }
 
@@ -48,10 +53,13 @@ t_node	*detach_node(t_node **src)
 {
 	t_node *temp;
 
-	temp = (*src)->next;
-	temp->previous = (*src)->previous;
-	temp = (*src)->previous;
-	temp->next = (*src)->next;
+	if (*src)
+	{
+		temp = (*src)->next;
+		temp->previous = (*src)->previous;
+		temp = (*src)->previous;
+		temp->next = (*src)->next;
+	}
 	return(*src);
 }
 
@@ -61,7 +69,8 @@ int		push(t_node **dest, int *dest_size, t_node **src, int *src_size)
 	t_node *b_head;
 	t_node *old_head;
 
-	b_head = detach_node(src);
+	if (!(b_head = detach_node(src)))
+		return(1);
 	old_head = b_head->next;
 	if (*dest_size == 0)
 	{

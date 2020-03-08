@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 09:20:54 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/08 09:21:31 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/08 13:37:29 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,19 @@ void	connect_stack(t_stack *stack)
 
 t_node	*read_arguments(t_node *previous, char **s)
 {
-	int i;
-	t_node *node;
+	int		i;
+	long	temp;
+	t_node	*node;
 
 	i = 0;
 	if (!(node = (t_node *)malloc(sizeof(t_node))))
 		ft_errno();
 	while (s[++i])
 	{
-		node->data = ft_atoi(s[i]);
+		temp = ft_atol(s[i]);
+		if (temp >= 2147483648 || temp <= -2147483649)
+			ft_errno();
+		node->data = temp;
 		node->next = read_arguments(node, (s + i));
 		node->previous = previous;
 		return (node);
