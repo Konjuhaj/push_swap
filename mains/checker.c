@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:00:26 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/08 10:33:48 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/08 10:55:10 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ int		main(int ac, char **av)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+	print_stack(stack);
 	return (0);
 }
