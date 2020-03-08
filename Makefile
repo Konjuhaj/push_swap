@@ -6,7 +6,7 @@
 #    By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/17 15:14:05 by bkonjuha          #+#    #+#              #
-#    Updated: 2020/03/08 09:22:58 by bkonjuha         ###   ########.fr        #
+#    Updated: 2020/03/08 15:34:57 by bkonjuha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,8 +56,6 @@ $(PRINTF) $(LIBFT): $(PRINTF_SRCS)*.c $(LIBFT_PATH)*.c
 		@make -C $(PRINTF_PATH)
 
 clean:
-		@rm -fv $(OBJS) >/dev/null
-		@rm -rf $(OBJ_PATH) > /dev/null
 		@make clean -C libraries/ft_printf/ >/dev/null
 
 fclean: clean
