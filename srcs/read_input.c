@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 09:20:54 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/09 11:44:26 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 15:28:58 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,21 +66,6 @@ char	**split_numbers(char **s)
 	ret = ft_strsplit(temp, ' ');
 	ft_strdel(&temp);
 	return (ret);
-}
-
-void	ft_strstrdel(char ***s)
-{
-	int i;
-	char **temp;
-
-	i = -1;
-	temp = *s;
-	while (temp[++i])
-	{
-		free((void *)temp[i]);
-		temp[i] = NULL;
-	}
-	free((void*)*s);
 }
 
 void	get_arguments(t_stack *stack, char **str)

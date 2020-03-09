@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 15:25:48 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/08 09:22:26 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 15:25:18 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct	s_stack
 {
 	t_node		*a;
 	t_node		*b;
+	int			visual;
+	int			color;
 	int			a_size;
 	int			b_size;
 }				t_stack;

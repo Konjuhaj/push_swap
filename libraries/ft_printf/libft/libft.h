@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 08:13:08 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/08 15:27:34 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 15:29:45 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,5 +183,8 @@ char				*ft_strjoin2(char const *s1,
 int					get_next_line(const int fd, char **line);
 
 long				ft_atol(const char *str);
+
+void				ft_strstrdel(char ***s);
+
 
 #endif
