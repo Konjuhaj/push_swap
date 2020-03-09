@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:00:26 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/09 18:15:43 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 19:09:24 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int		main(int ac, char **av)
 		validate_command(line);
 		execute_commands(stack, line);
 		ft_strdel(&line);
+		stack->visual ? print_stack(stack) : 0;
 	}
 	if (!is_sorted(stack->a) && !stack->b_size)
 		ft_printf("OK\n");

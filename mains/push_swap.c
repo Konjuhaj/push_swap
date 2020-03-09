@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:55:31 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/09 11:47:02 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 19:08:16 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		main(int ac, char **av)
 		else if (stack->a_size > 0)
 			sort_big(stack);
 	}
+	stack->visual ? print_stack(stack) : 0;
 	return (0);
 }

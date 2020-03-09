@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 13:43:11 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/09 19:01:12 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 19:21:41 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	print_stack(t_stack *stack)
 			stack->visual == 'l' ? print_dots(stack->a->data) : 0;
 			stack->a = stack->a->next;
 		}
-		ft_printf("%*c|	", 160 - ft_abs(data), 0 );
+		ft_printf("%*c|	", (160 - ft_abs(data)), 0 );
 		if (i < stack->b_size)
 		{
 			set_color(stack->b, stack->b->next, stack->color);
@@ -69,4 +69,5 @@ void	print_stack(t_stack *stack)
 		}
 		ft_printf("\n");
 	}
+	ft_printf("-------\n");
 }
