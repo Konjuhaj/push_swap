@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 12:58:59 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/08 15:25:07 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 15:19:16 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_errno(void)
 {
-	ft_printf("error\n");
+	write(2, "error\n", 6);
 	exit(0);
 }
