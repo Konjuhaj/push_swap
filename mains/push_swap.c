@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 11:55:31 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/08 15:28:30 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 11:47:02 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ int		main(int ac, char **av)
 	if (!(stack = (t_stack *)malloc(sizeof(t_stack))))
 		ft_errno();
 	if (ac > 1)
+	{
 		get_arguments(stack, av);
-	if (stack->a_size <= 10 && stack->a_size > 0)
-		sort_small(stack);
-	else if (stack->a_size > 0)
-		sort_big(stack);
-	system("leaks push_swap");
+		if (stack->a_size <= 10 && stack->a_size > 0)
+			sort_small(stack);
+		else if (stack->a_size > 0)
+			sort_big(stack);
+	}
 	return (0);
 }

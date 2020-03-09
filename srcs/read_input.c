@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 09:20:54 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/08 15:34:36 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 11:44:26 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ t_node	*read_arguments(t_node *previous, char **s)
 	t_node	*node;
 
 	i = 0;
-	if (!(node = (t_node *)malloc(sizeof(t_node))))
-		ft_errno();
 	while (s[++i])
 	{
+		if (!(node = (t_node *)malloc(sizeof(t_node))))
+			ft_errno();
 		temp = ft_atol(s[i]);
 		if (temp >= 2147483648 || temp <= -2147483649)
 			ft_errno();
@@ -56,6 +56,7 @@ char	**split_numbers(char **s)
 
 	i = 0;
 	temp = ft_strdup(s[i]);
+	temp2 = NULL;
 	while (s[++i])
 	{
 		temp2 = ft_strjoin2(temp, " ", s[i]);
@@ -67,14 +68,30 @@ char	**split_numbers(char **s)
 	return (ret);
 }
 
+void	ft_strstrdel(char ***s)
+{
+	int i;
+	char **temp;
+
+	i = -1;
+	temp = *s;
+	while (temp[++i])
+	{
+		free((void *)temp[i]);
+		temp[i] = NULL;
+	}
+	free((void*)*s);
+}
+
 void	get_arguments(t_stack *stack, char **str)
 {
 	char	**s;
 
 	are_numbers(str);
 	s = split_numbers(str);
-	stack->a = read_arguments(NULL, s);
+	stack->a = read_arguments(NULL, s); // one LEAK
 	stack->b = NULL;
 	connect_stack(stack);
 	are_doubles(stack);
+	ft_strstrdel(&s);
 }

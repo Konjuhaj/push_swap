@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 09:55:29 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/02/21 10:00:57 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 10:35:56 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strjoin2(char const *s1, char const *s2, char const *s3)
 		(ft_strlen(s1) + ft_strlen(s2) + ft_strlen(s3) + 1));
 	if (!s4)
 		return (NULL);
-	s4 = ft_strcpy(s4, s1);
+	ft_strcpy(s4, s1);
 	while (s2[++i])
 		s4[len++] = s2[i];
 	i = -1;
