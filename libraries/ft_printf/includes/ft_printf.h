@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 12:27:21 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/09 16:17:25 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 18:12:39 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define YELLOW "\033[1;33m"
 # define RESET "\033[0m"
 # define RED "\033[1;31m"
+# define GREEN "\033[0;32m"
 # include <stdarg.h>
 # include <unistd.h>
 # include "../libft/libft.h"

@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 09:20:54 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/09 17:10:38 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 18:24:45 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,14 @@ char	**split_numbers(char **s)
 
 int		check_for_flags(char **s, t_stack *stack)
 {
+	stack->visual = 0;
+	stack->color = 0;
 	if (ft_strequ(s[1], "-v") || ft_strequ(s[1], "-l"))
 		if (ft_strlen(s[1]) == 2)
 			stack->visual = s[1][1];
 	if (ft_strequ(s[2], "-c") && ft_strlen(s[2]) == 2)
 		stack->color = s[2][1];
-	return (!(stack->visual == 0));
+	return (!(stack->visual == 0) + !(stack->color == 0));
 }
 
 void	get_arguments(t_stack *stack, char **str)
@@ -83,10 +85,7 @@ void	get_arguments(t_stack *stack, char **str)
 	char	**s;
 	int		move;
 
-	move = 0;
-	stack->visual = 0;
-	if ((check_for_flags(str, stack)))
-		move++;
+	move = check_for_flags(str, stack);
 	are_numbers(str + move);
 	s = split_numbers(str + move);
 	stack->a = read_arguments(NULL, s);

@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:00:26 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/09 17:11:31 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 18:15:43 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int		main(int ac, char **av)
 		get_arguments(stack, av);
 	while (get_next_line(0, &line))
 	{
-		ft_printf("CAT\n");
 		validate_command(line);
 		execute_commands(stack, line);
 		ft_strdel(&line);
@@ -84,6 +83,5 @@ int		main(int ac, char **av)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	system("leaks checker");
 	return (0);
 }
