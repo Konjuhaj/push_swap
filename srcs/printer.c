@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 13:43:11 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/09 15:31:46 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 16:41:19 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,16 @@
 
 void	print_dots(int num)
 {
-	while (num--)
-		ft_printf(".");
+	int i;
+
+	i = ft_abs(num);
+	while (i--)
+	{
+		if (num < 0)
+			ft_printf("%s%s%s", YELLOW, ".", RESET);
+		else
+			ft_printf(".");
+	}
 }
 
 void	print_numbers(int num)
@@ -25,29 +33,23 @@ void	print_numbers(int num)
 
 void	print_stack(t_stack *stack)
 {
-	t_node	*temp;
-	t_node	*temp2;
+	int i;
 
-	temp = stack->a == NULL? NULL : stack->a->next;
-	temp2 = stack->b == NULL? NULL : stack->b->next;
-	stack->a == NULL ? ft_printf("%d", stack->a->data) : 0;
-	ft_printf("	|	");
-	stack->b == NULL ? ft_printf("%d", stack->b->data) : 0;
-	ft_printf("\n");
-	while (temp2 != stack->b || temp != stack->a)
+	i = -1;
+	while (++i < stack->a_size || i < stack->b_size)
 	{
-		if (temp != stack->a)
+		if (i < stack->a_size)
 		{
-			stack->visual == 'v' ? print_numbers(temp->data) : 0;
-			stack->visual == 'l' ? print_dots(temp->data) : 0;
-			temp = temp->next;
+			stack->visual == 'v' ? print_numbers(stack->a->data) : 0;
+			stack->visual == 'l' ? print_dots(stack->a->data) : 0;
+			stack->a = stack->a->next;
 		}
 		ft_printf("	|	");
-		if (temp2 != stack->b)
+		if (i < stack->b_size)
 		{
-			stack->visual == 'v' ? print_numbers(temp->data) : 0;
-			stack->visual == 'l' ? print_dots(temp->data) : 0;
-			temp2 = temp2->next;
+			stack->visual == 'v' ? print_numbers(stack->b->data) : 0;
+			stack->visual == 'l' ? print_dots(stack->b->data) : 0;
+			stack->b = stack->b->next;
 		}
 		ft_printf("\n");
 	}

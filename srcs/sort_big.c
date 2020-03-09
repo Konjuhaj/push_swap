@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 08:52:35 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/08 15:17:53 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 15:52:53 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	embty_a_stack(t_stack *stack)
 	temp = stack->a->next;
 	while (stack->a_size > 3)
 	{
+		stack->visual ? print_stack(stack) : 0;
 		ft_printf("pb\n");
 		push(&stack->b, &stack->b_size, &stack->a, &stack->a_size);
 	}
@@ -107,6 +108,7 @@ void	sort_big(t_stack *stack)
 							stack->a_size, 'a');
 		push(&stack->a, &stack->a_size, &stack->b, &stack->b_size);
 		ft_printf("pa\n");
+		stack->visual ? print_stack(stack) : 0;
 	}
 	reset = find_best_spot(-2147483648, stack->a, stack->a_size, ASCENDING);
 	rotate_best_to_top(&stack->a, reset, stack->a_size, 'a');

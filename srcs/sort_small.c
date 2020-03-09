@@ -6,7 +6,7 @@
 /*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 10:53:14 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/08 14:55:43 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/09 15:52:26 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	sort_small(t_stack *stack)
 			ft_printf("pb\n");
 			if (move && move == stack->b_size - 1 && rotate(&stack->b))
 				ft_printf("rb\n");
+			stack->visual ? print_stack(stack) : 0;
 		}
 		sort_three(&stack->a);
 		if (stack->b)
