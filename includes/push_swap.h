@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bkonjuha <bkonjuha@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 15:25:48 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/09 15:25:18 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/14 00:17:37 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ typedef struct	s_stack
 {
 	t_node		*a;
 	t_node		*b;
-	int			visual;
+	int			flag;
 	int			color;
 	int			a_size;
 	int			b_size;
 }				t_stack;
 
-void			ft_errno();
+void			ft_errno(int flag, char *str);
 
 void			print_stack(t_stack *stack);
 
@@ -67,7 +67,7 @@ void			rotate_best_to_top(t_node **node, int i, int size, char letter);
 
 void			connect_stack(t_stack *stack);
 
-t_node			*read_arguments(t_node *previous, char **s);
+t_node			*read_arguments(t_node *previous, char **s, int flag);
 
 char			**split_numbers(char **s);
 
@@ -103,7 +103,7 @@ int				find_biggest(t_node *node, int size, int id);
 
 int				is_sorted(t_node *stack);
 
-int				are_numbers(char **s);
+int				are_numbers(char **s, int flag);
 
 int				are_doubles(t_stack *stack);
 

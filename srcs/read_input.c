@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_input.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bkonjuha <bkonjuha@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 09:20:54 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/09 18:24:45 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/14 00:18:30 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	connect_stack(t_stack *stack)
 	stack->a->previous = temp;
 }
 
-t_node	*read_arguments(t_node *previous, char **s)
+t_node	*read_arguments(t_node *previous, char **s, int flag)
 {
 	int		i;
 	long	temp;
@@ -35,12 +35,12 @@ t_node	*read_arguments(t_node *previous, char **s)
 	while (s[++i])
 	{
 		if (!(node = (t_node *)malloc(sizeof(t_node))))
-			ft_errno();
+			ft_errno('e', "Could not allocate memmory\n");
 		temp = ft_atol(s[i]);
 		if (temp >= 2147483648 || temp <= -2147483649)
-			ft_errno();
+			ft_errno(flag, "Number is out of bounds");
 		node->data = temp;
-		node->next = read_arguments(node, (s + i));
+		node->next = read_arguments(node, (s + i), flag);
 		node->previous = previous;
 		return (node);
 	}
@@ -70,14 +70,14 @@ char	**split_numbers(char **s)
 
 int		check_for_flags(char **s, t_stack *stack)
 {
-	stack->visual = 0;
+	stack->flag = 0;
 	stack->color = 0;
-	if (ft_strequ(s[1], "-v") || ft_strequ(s[1], "-l"))
+	if (ft_strequ(s[1], "-v") || ft_strequ(s[1], "-l") || ft_strequ(s[1], "-e"))
 		if (ft_strlen(s[1]) == 2)
-			stack->visual = s[1][1];
+			stack->flag = s[1][1];
 	if (ft_strequ(s[2], "-c") && ft_strlen(s[2]) == 2)
 		stack->color = s[2][1];
-	return (!(stack->visual == 0) + !(stack->color == 0));
+	return (!(stack->flag == 0) + !(stack->color == 0));
 }
 
 void	get_arguments(t_stack *stack, char **str)
@@ -86,9 +86,9 @@ void	get_arguments(t_stack *stack, char **str)
 	int		move;
 
 	move = check_for_flags(str, stack);
-	are_numbers(str + move);
+	are_numbers(str + move, stack->flag);
 	s = split_numbers(str + move);
-	stack->a = read_arguments(NULL, s);
+	stack->a = read_arguments(NULL, s, stack->flag);
 	stack->b = NULL;
 	connect_stack(stack);
 	are_doubles(stack);

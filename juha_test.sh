@@ -1,6 +1,6 @@
 #!/bin/bash
 ​
-push_swap="./push_swap"
+push_swap="./push_swap -e"
 checker="./checker"
 ​
 run_push_swap_error()

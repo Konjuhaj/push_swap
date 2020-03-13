@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bkonjuha <bkonjuha@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:24 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/09 19:07:35 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/14 00:07:48 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	embty_b_stack(t_stack *stack)
 	rotate_best_to_top(&stack->b, move, stack->b_size, 'b');
 	while (stack->b_size)
 	{
-		stack->visual ? print_stack(stack) : 0;
+		stack->flag ? print_stack(stack) : 0;
 		move = find_best_spot(stack->b->data, stack->a,
 								stack->a_size, ASCENDING);
 		rotate_best_to_top(&stack->a, move, stack->a_size, 'a');

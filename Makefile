@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+         #
+#    By: bkonjuha <bkonjuha@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/17 15:14:05 by bkonjuha          #+#    #+#              #
-#    Updated: 2020/03/08 15:34:57 by bkonjuha         ###   ########.fr        #
+#    Updated: 2020/03/13 23:39:35 by bkonjuha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ clean:
 
 fclean: clean
 		@rm -fv $(PUSH_SWAP) > /dev/null
+		@rm -fv $(CHECKER) > /dev/null
 		@make fclean -C libraries/ft_printf/ >/dev/null
 
 re: fclean all

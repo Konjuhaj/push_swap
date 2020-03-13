@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bkonjuha <bkonjuha@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:00:26 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/09 19:09:24 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/14 00:10:57 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	validate_command(char *line)
+void	validate_command(char *line, int flag)
 {
 	if (!(ft_strequ(line, "ra") || ft_strequ(line, "rb")
 		|| ft_strequ(line, "sa") || ft_strequ(line, "sb")
@@ -20,7 +20,7 @@ void	validate_command(char *line)
 		|| ft_strequ(line, "rr") || ft_strequ(line, "ss")
 		|| ft_strequ(line, "rra") || ft_strequ(line, "rrb")
 		|| ft_strequ(line, "rrr")))
-		ft_errno();
+		ft_errno(flag, ft_strjoin(line, " is not a valid command\n"));
 }
 
 void	double_command(t_stack *stack, char *line)
@@ -70,15 +70,15 @@ int		main(int ac, char **av)
 	char	*line;
 
 	if (!(stack = (t_stack *)malloc(sizeof(t_stack))))
-		ft_errno();
+		ft_errno('e', "Could not allocate memmory\n");
 	if (ac > 1)
 		get_arguments(stack, av);
 	while (get_next_line(0, &line))
 	{
-		validate_command(line);
+		validate_command(line, stack->flag);
 		execute_commands(stack, line);
 		ft_strdel(&line);
-		stack->visual ? print_stack(stack) : 0;
+		stack->flag ? print_stack(stack) : 0;
 	}
 	if (!is_sorted(stack->a) && !stack->b_size)
 		ft_printf("OK\n");

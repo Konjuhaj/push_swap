@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkonjuha <bkonjuha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bkonjuha <bkonjuha@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 16:37:40 by bkonjuha          #+#    #+#             */
-/*   Updated: 2020/03/09 12:09:39 by bkonjuha         ###   ########.fr       */
+/*   Updated: 2020/03/14 00:15:10 by bkonjuha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		are_doubles(t_stack *stack)
 		while (comp != curr)
 		{
 			if (curr->data == comp->data)
-				ft_errno();
+				ft_errno(stack->flag, "Duplicate numbers found\n");
 			comp = comp->next;
 		}
 		curr = curr->next;
@@ -35,7 +35,7 @@ int		are_doubles(t_stack *stack)
 	return (1);
 }
 
-int		are_numbers(char **s)
+int		are_numbers(char **s, int flag)
 {
 	int i;
 	int j;
@@ -53,7 +53,7 @@ int		are_numbers(char **s)
 				if ((i > 0 && s[j][i -1] == ' ') || i == 0)
 					fine = ft_isdigit(s[j][i + 1]);
 			if (fine == 0)
-				ft_errno();
+				ft_errno(flag, "Not a valid number found\n");
 		}
 	}
 	return (0);
