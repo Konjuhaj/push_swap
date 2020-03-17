@@ -28,7 +28,7 @@ INCLUDES = -I ./includes/
 HEADER_PATH = ./includes/
 HEADER_FILES = push_swap.h
 HEADERS = $(addprefix $(HEADER_PATH), $(HEADER_FILES))
-COMPILE = gcc -Wall -Werror -Wextra -g #remove -g flag
+COMPILE = gcc -Wall -Werror -Wextra 
 
 LIBFT_PATH = libraries/ft_printf/libft/
 LIBFT_FILE = libft.a
